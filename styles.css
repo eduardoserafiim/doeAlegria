@@ -1,0 +1,506 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2d3436;
+    overflow-x: hidden;
+}
+
+.flex
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    gap: 2rem;
+}
+
+:root {
+    --natal-vermelho: #C41E3A;
+    --natal-verde: #165B33;
+    --natal-ouro: #FFD700;
+    --natal-branco: #FFFFFF;
+    --natal-creme: #FFF8DC;
+    --natal-escuro: #1a1a1a;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(135deg, var(--natal-verde), var(--natal-vermelho));
+    padding: 1rem 2rem;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1, header i {
+    color: var(--natal-branco);
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+nav a {
+    color: var(--natal-branco);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+nav a:hover {
+    color: var(--natal-ouro);
+    transform: scale(1.1);
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--natal-verde) 0%, var(--natal-vermelho) 100%);
+    color: var(--natal-branco);
+    padding: 8rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.snowflake
+{
+    color: var(--natal-branco);
+    padding: 8rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.snowflake::before {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    font-size: 2rem;
+    animation: snowfall 3s linear infinite;
+}
+
+@keyframes snowfall {
+    0% { transform: translateY(-10px); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(300px); opacity: 0; }
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: slideInDown 0.8s ease;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: slideInUp 0.8s ease;
+}
+
+.cta-button {
+    background: var(--natal-ouro);
+    color: var(--natal-vermelho);
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+    animation: slideInUp 0.8s ease 0.2s both;
+}
+
+.cta-button:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* sensibilizacao */
+.sensibilizacao {
+    padding: 6rem 2rem;
+    background: var(--natal-creme);
+    position: relative;
+}
+
+.sensibilizacao h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--natal-verde);
+    opacity: 0;
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+.sensibilizacao .flex
+{
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--natal-branco);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: slideUp 0.8s ease forwards;
+}
+
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--natal-vermelho);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: spin 2s linear infinite;
+}
+
+.card:hover .card-icon {
+    animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.card h4 {
+    color: var(--natal-vermelho);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* informacao */
+.informacao {
+    padding: 6rem 2rem;
+    background: var(--natal-branco);
+    position: relative;
+}
+
+.informacao h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--natal-vermelho);
+    opacity: 0;
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+.informacao .flex
+{
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: linear-gradient(135deg, var(--natal-verde), var(--natal-ouro));
+    padding: 2.5rem;
+    border-radius: 15px;
+    color: var(--natal-branco);
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateX(-50px);
+    opacity: 0;
+    animation: slideInRight 0.8s ease forwards;
+}
+
+.info-card:nth-child(2) { animation-delay: 0.2s; }
+.info-card:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.info-card:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.info-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.info-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.age-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.data-importante {
+    background: var(--natal-vermelho);
+    color: var(--natal-branco);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    box-shadow: 0 5px 20px rgba(196, 30, 58, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* agradecimento */
+.agradecimentos {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, var(--natal-verde), var(--natal-escuro));
+    color: var(--natal-branco);
+    position: relative;
+}
+
+.agradecimentos h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    opacity: 0;
+    animation: fadeInScale 0.8s ease forwards;
+    color: var(--natal-ouro);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.agradecimentos i
+{
+    animation: fadeInScale 0.8s ease forwards;
+}
+
+.gratitude-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gratitude-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--natal-ouro);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    opacity: 0;
+    animation: zoomIn 0.8s ease forwards;
+    transition: all 0.3s ease;
+}
+
+.gratitude-card:nth-child(1) { animation-delay: 0s; }
+.gratitude-card:nth-child(2) { animation-delay: 0.2s; }
+.gratitude-card:nth-child(3) { animation-delay: 0.4s; }
+.gratitude-card:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.gratitude-card:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: var(--natal-branco);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+}
+
+.gratitude-card h4 {
+    color: var(--natal-ouro);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.gratitude-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.star-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: twinkle 1.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* RODAPÉ */
+footer {
+    background: var(--natal-escuro);
+    color: var(--natal-branco);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.95rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    nav a {
+        margin-left: 1rem;
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        padding: 4rem 1rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .sensibilizacao h3,
+    .informacao h3,
+    .agradecimentos h3 {
+        font-size: 1.8rem;
+    }
+
+    .cards-container,
+    .info-grid,
+    .gratitude-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* SCROLL REVEAL */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.scroll-reveal.active {
+    animation: slideInUp 0.8s ease forwards;
+}
