@@ -504,3 +504,39 @@ footer p {
 .scroll-reveal.active {
     animation: slideInUp 0.8s ease forwards;
 }
+
+.imagens
+{
+    display: flex;
+    gap: 3rem;
+}
+
+.imagem
+{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 12px;
+}
+
+.imagem-esquerda
+{
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+}
+
+.imagem-direita
+{
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+    transition: all 0.3s ease;
+}
+
+.imagem:hover
+{
+    width: 325px;
+    height: 325px;
+}
